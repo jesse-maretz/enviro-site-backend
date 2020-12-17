@@ -19,9 +19,8 @@ app.get("/documentation", (req, res) => {
 
 app.use('/footprint', require("./routes/footprintRoutes"))
 
+app.set("port", process.env.PORT || 6000);
 
-
-app.listen(process.env.PORT || 5000, () => {
-    console.log('Server has started')
-})
-
+app.listen(app.get('port'), () => {
+  console.log(`Listening on Port ${app.get('port')}`);
+});
