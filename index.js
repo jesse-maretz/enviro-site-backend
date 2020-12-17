@@ -5,13 +5,17 @@ const app = express()
 
 //Middleware
 app.use(express.json())
-app.use(cors({
-    origin: "http://localhost:3000", // <-- location of the react app we're connectiong to
-    methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD'],
-    credentials: true
-}))
+app.use(cors())
 
+app.get("/", (req,res) => {
+    res.redirect("/documentation")
+})
 
+app.get("/documentation", (req, res) => {
+    res.sendFile(path.join(__dirname + '/documentation.html'), (err)=> {
+      if (err) console.log(err);
+    });
+  });
 
 app.use('/footprint', require("./routes/footprintRoutes"))
 
