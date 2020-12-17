@@ -17,6 +17,7 @@ app.use('/footprint', require("./routes/footprintRoutes"))
 
 
 
-app.listen(4000, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log('Server has started')
 })
+
