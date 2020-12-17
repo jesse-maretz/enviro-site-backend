@@ -3,11 +3,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const Footprint = new Schema({
-    footprint: Number,
     date: {
         type: Date,
         default: Date.now
     },
+    footprint: Number
     
 })
 
