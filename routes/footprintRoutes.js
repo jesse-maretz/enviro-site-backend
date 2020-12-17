@@ -16,7 +16,7 @@ router.get('/', (req,res) => {
         })
   })
   
-router.get('/specific/:id', (req,res) => {
+router.get('/:id', (req,res) => {
     Footprint.findById(req.params.id)
         .then((data)=> {
             res.json(data);
